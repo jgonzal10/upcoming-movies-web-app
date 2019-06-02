@@ -2,17 +2,14 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const routes = require('./routes')
+const dotenv = require('dotenv');
+dotenv.config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.get('/', (req, res) => res.send('Nukr is working'))
-
 app.use('/', routes)
+const port = process.env.PORT;
 
-var server = app.listen(300, function () {
-   var host = server.address().address
-   var port = server.address().port
-   
-   console.log("Movies Web App listening at http://%s:%s", host, port)
-})
+console.log(`Your port is ${process.env.PORT}`);
+app.listen(port)
