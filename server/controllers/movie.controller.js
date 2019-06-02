@@ -1,10 +1,16 @@
-const {listMovies}= require('../services/movie.service')
+const {listMovies,movieDetails}= require('../services/movie.service')
 
-const getListOfMovies = async (req, res, next) => {
- 
+/**
+ * Method to brill the list of movies
+ */
+const getListOfMovies = async (req, res, next) => { 
     try {
-      let data = await listMovies()
+      console.log(req.query.page)
+      let page = req.query.page;
+      console.log(typeof page)
+      let data = await listMovies(page)
       let movies = data.data.results;
+      console.log(movies.length)
       res.json(movies)
       next()
     } catch(e) {
@@ -12,4 +18,22 @@ const getListOfMovies = async (req, res, next) => {
       res.sendStatus(500) && next(error)
     }
   }
-module.exports ={getListOfMovies}
+
+  /**
+   * Method to get Movie Details
+   */
+  const getMovieDetails = async (req, res, next) => {
+ 
+    try {
+      let movie_id = req.query.movie_id;
+      let data = await movieDetails(movie_id)
+      let movie = data.data;
+      res.json(movie)
+      next()
+    } catch(e) {
+      console.log(e.message)
+      res.sendStatus(500) && next(error)
+    }
+  }
+
+module.exports ={getListOfMovies, getMovieDetails}
