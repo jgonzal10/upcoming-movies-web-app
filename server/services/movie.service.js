@@ -28,10 +28,20 @@ const movieDetails = async (movie_id) => {
   }
 }
 
-
-
-
+/**
+ * Function to bring 20 movies that match the page and the query passed as parameter
+ * @param {number} page 
+ * @param {string} query 
+ * @return {array} movies
+ */
+const movieSearch = async (page,query) => {
+  try {
+    return await axios.get(`${process.env.API_URL}/search/movie?api_key=${process.env.API_KEY}&language=en-US&page=${page}&include_adult=false&query=${query}`)
+  } catch(e) {
+    throw new Error(e.message)
+  }
+}
 
 module.exports = {
-    listMovies, movieDetails
+    listMovies, movieDetails, movieSearch
 }

@@ -1,4 +1,4 @@
-const {listMovies,movieDetails}= require('../services/movie.service')
+const {listMovies,movieDetails,movieSearch}= require('../services/movie.service')
 
 /**
  * Method to brill the list of movies
@@ -36,4 +36,23 @@ const getListOfMovies = async (req, res, next) => {
     }
   }
 
-module.exports ={getListOfMovies, getMovieDetails}
+
+    /**
+   * Search Function 
+   */
+  const search = async (req, res, next) => {
+ 
+    try {
+      let page = req.query.page;
+      let query = req.query.query;
+      let data = await movieSearch(page, query)
+      let movies = data.data;
+      res.json(movies)
+      next()
+    } catch(e) {
+      console.log(e.message)
+      res.sendStatus(500) && next(error)
+    }
+  }
+
+module.exports ={getListOfMovies, getMovieDetails, search}
