@@ -28,7 +28,6 @@ export class MovieComponent implements OnInit {
         movie.backdrop_path = this.imageURL+movie.backdrop_path;
         movie.poster_path = this.imageURL+movie.poster_path
       })
-      //console.log(data)
         this.movies = data;  
 
     }); 
