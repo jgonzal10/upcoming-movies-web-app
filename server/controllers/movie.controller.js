@@ -5,9 +5,7 @@ const {listMovies,movieDetails,movieSearch}= require('../services/movie.service'
  */
 const getListOfMovies = async (req, res, next) => { 
     try {
-      console.log(req.query.page)
       let page = req.query.page;
-      console.log(typeof page)
       let data = await listMovies(page)
       let movies = data.data.results;
       console.log(movies.length)
