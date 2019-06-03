@@ -15,9 +15,7 @@ export class MovieDetailsComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: IMovie) {
     }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+
 
   ngOnInit() {
     console.log(this.data)

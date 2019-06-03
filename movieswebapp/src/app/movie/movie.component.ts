@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver  } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import {IMovie} from '../models/movie'
 import { MoviesService } from '../services/movies.service';
@@ -18,12 +18,19 @@ export class MovieComponent implements OnInit {
   pageSize = 20;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   title:string;
+  imageURL = 'https://image.tmdb.org/t/p/w500';
 
   // MatPaginator Output
   pageChanged(event){
     this.currentPage = event.pageIndex;
     this._movieService.getMovies(this.currentPage).subscribe(data =>{  
-      this.movies = data;  
+      data.map(movie => {
+        movie.backdrop_path = this.imageURL+movie.backdrop_path;
+        movie.poster_path = this.imageURL+movie.poster_path
+      })
+      //console.log(data)
+        this.movies = data;  
+
     }); 
   }
 
@@ -31,7 +38,11 @@ export class MovieComponent implements OnInit {
   constructor(private _movieService: MoviesService, public dialog: MatDialog) {
 
     this._movieService.getMovies(this.currentPage).subscribe(data =>{  
-      this.movies = data;  
+      data.map(movie => {
+        movie.backdrop_path = this.imageURL+movie.backdrop_path;
+        movie.poster_path = this.imageURL+movie.poster_path})
+      //console.log(data)
+        this.movies = data;  
     }); 
 
     
@@ -50,16 +61,25 @@ export class MovieComponent implements OnInit {
 
     this._movieService.getMovieDetails(movie_id).subscribe(data =>{  
       this.selectedMovie = data;  
+    }, err =>{ console.log(err)},()=>
+    {
+      console.log('DONE')
       console.log('movie ', this.selectedMovie)
-    }); 
-    const dialogRef = this.dialog.open(MovieDetailsComponent, {
-      width: '500px',
-      data: {data:this.selectedMovie }
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.title = result
-    });
+      const dialogRef = this.dialog.open(MovieDetailsComponent, {
+        width: '500px',
+        data: {data:this.selectedMovie}
+      });
+
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.title = result
+      });
+    }
+     
+     ); 
+
+
   }
 
 }

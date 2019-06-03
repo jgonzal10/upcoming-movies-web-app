@@ -17,10 +17,11 @@
   </mat-card> -->
 <mat-grid-list cols="4" rowHeight="170px" gutterSize="5px">
   <mat-grid-tile *ngFor="let movie of movies" (click)="openDialog(movie.id)">
-    {{movie.poster_path}}
+  
     <mat-grid-tile-header>
       <h3> {{movie.title}}</h3>
     </mat-grid-tile-header>
+    <img src={{movie.poster_path}}>
     <mat-grid-tile-footer>
         <h3>{{movie.genre_ids}}/{{movie.release_date}} </h3>
     </mat-grid-tile-footer>
