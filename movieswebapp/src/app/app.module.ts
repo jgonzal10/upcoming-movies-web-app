@@ -6,11 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialmoduleModule} from './material/materialmodule/materialmodule.module'
 import { MoviesService } from './services/movies.service';
 import { MovieComponent } from './movie/movie.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,    
-    MovieComponent
+    MovieComponent, MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +20,7 @@ import { MovieComponent } from './movie/movie.component';
     MaterialmoduleModule
   ],
   providers: [MoviesService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MovieDetailsComponent]
 })
 export class AppModule { }

@@ -15,8 +15,16 @@ export class MoviesService {
   private _url: string = "/api";
   
   getMovies(page): Observable<IMovie[]>{
-    // console.log(`${this.API_URL}`)
+  
     return this.http.get<IMovie[]>(this._url+'/movies?page='+page)
+                    .catch(this.errorHandler);
+  }
+
+
+    
+  getMovieDetails(movie_id): Observable<IMovie>{
+  
+    return this.http.get<IMovie>(this._url+'/moviedetails?movie_id='+movie_id)
                     .catch(this.errorHandler);
   }
   errorHandler(error: HttpErrorResponse){

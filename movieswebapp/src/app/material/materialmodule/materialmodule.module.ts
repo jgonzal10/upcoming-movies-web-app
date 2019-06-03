@@ -11,6 +11,7 @@ import {
   MatSortModule,
   MatPaginatorModule,
   MatGridListModule,
+  MatDialogModule
 } from '@angular/material'
 const Material = [
   MatButtonModule,
@@ -23,7 +24,8 @@ const Material = [
   MatTableModule,
   MatSortModule,
   MatPaginatorModule,
-  MatGridListModule
+  MatGridListModule,
+  MatDialogModule
 ]
 
 @NgModule({
