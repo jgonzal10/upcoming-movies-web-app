@@ -1,34 +1,19 @@
-<mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+<div fxLayout fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%">
+    <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
+</div>
 
-  <!-- <mat-card *ngFor="let movie of movies" class="movie-card">
-    <mat-card-header>
-      <div mat-card-avatar class="movie-header-image"></div>
-      <mat-card-title>{{movie.title}}</mat-card-title>
-      <mat-card-subtitle>{{movie.genre_ids}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src=`{{movie.poster_path}}`>
-    <mat-card-content>
-      <p>
-        {{movie.release_date}}
-      </p>
-    </mat-card-content>
-  </mat-card> -->
-<mat-grid-list cols="4" rowHeight="170px" gutterSize="5px">
+<mat-grid-list cols="3" rowHeight="300px" gutterSize="5px">
   <mat-grid-tile *ngFor="let movie of movies" (click)="openDialog(movie.id)">
   
     <mat-grid-tile-header>
       <h3> {{movie.title}}</h3>
     </mat-grid-tile-header>
     <img src={{movie.poster_path}}>
-    <mat-grid-tile-footer>
-        <h3>{{movie.genre_ids}}/{{movie.release_date}} </h3>
-    </mat-grid-tile-footer>
   </mat-grid-tile>
 </mat-grid-list>
 <mat-paginator [length]="length"
               [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOptions"
               (page)="pageEvent = pageChanged($event)">
 </mat-paginator>

@@ -7,17 +7,19 @@ import {MaterialmoduleModule} from './material/materialmodule/materialmodule.mod
 import { MoviesService } from './services/movies.service';
 import { MovieComponent } from './movie/movie.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,    
-    MovieComponent, MovieDetailsComponent
+    MovieComponent, 
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialmoduleModule
+    MaterialmoduleModule,
+    FlexLayoutModule
   ],
   providers: [MoviesService],
   bootstrap: [AppComponent],

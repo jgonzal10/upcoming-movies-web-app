@@ -13,18 +13,38 @@ export class MoviesService {
   constructor(private http:HttpClient) { }
 
   private _url: string = "/api";
-  
-  getMovies(page): Observable<IMovie[]>{
+
+  /**
+   * Function to get the list of movies
+   * @param page 
+   * @return movies
+   */
+  getMovies(page:number): Observable<IMovie[]>{
   
     return this.http.get<IMovie[]>(this._url+'/movies?page='+page)
                     .catch(this.errorHandler);
   }
 
 
-    
-  getMovieDetails(movie_id): Observable<IMovie>{
+  /**
+   * Funtion to get a movie details
+   * @param movie_id 
+   * @return movie
+   */  
+  getMovieDetails(movie_id:number): Observable<IMovie>{
   
     return this.http.get<IMovie>(this._url+'/moviedetails?movie_id='+movie_id)
+                    .catch(this.errorHandler);
+  }
+/**
+ * Function to filter movies
+ * @param page 
+ * @param query 
+ * @return movies
+ */
+  searchMovies(page:number, query:string): Observable<any>{
+  
+    return this.http.get<any>(this._url+'/search?page='+page+'&query='+query)
                     .catch(this.errorHandler);
   }
   errorHandler(error: HttpErrorResponse){

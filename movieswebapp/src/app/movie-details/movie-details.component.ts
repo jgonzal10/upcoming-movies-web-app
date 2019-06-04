@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject  } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {IMovie} from '../models/movie'
+import {IMovie} from '../models/movie';
+import { FlexLayoutModule } from '@angular/flex-layout';
  
 @Component({
   selector: 'app-movie-details',

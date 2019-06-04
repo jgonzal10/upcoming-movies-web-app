@@ -8,7 +8,6 @@ const getListOfMovies = async (req, res, next) => {
       let page = req.query.page;
       let data = await listMovies(page)
       let movies = data.data.results;
-      console.log(movies.length)
       res.json(movies)
       next()
     } catch(e) {
