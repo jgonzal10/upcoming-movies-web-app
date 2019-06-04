@@ -16,12 +16,7 @@ app.use((req, res, next) =>
     )
 app.use(express.static(__dirname + '/dist/movieswebapp'));
 app.use('/api', routes)
-
-app.get('/api/*', function(req,res) {
-    
-res.sendFile(path.join(__dirname+'/dist/movieswebapp/index.html'));
-});
-    
+   
 
 const port = process.env.PORT || 3000;
 
