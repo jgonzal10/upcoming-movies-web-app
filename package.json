@@ -7,7 +7,7 @@
     "ng":"ng movieswebapp",
     "start": "node server/index.js",
     "build": "cd movieswebapp && ng build",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "cd movieswebapp && ng build --aot -prod"
 
   },
   "repository": {

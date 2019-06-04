@@ -18,7 +18,6 @@ app.use(express.static(__dirname + '/dist/movieswebapp'));
 
 
 app.get('*', function(req,res) {
-    // Replace the '/dist/<to_your_project_name>/index.html'
     res.sendFile(path.join(__dirname + '/dist/movieswebapp/index.html'));
 });
 app.use('/api', routes)
