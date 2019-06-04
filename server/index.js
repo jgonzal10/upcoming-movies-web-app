@@ -14,7 +14,7 @@ app.use((req, res, next) =>
         next()
     }
     )
-// app.use(express.static(__dirname + '/dist/movieswebapp'));
+app.use(express.static(__dirname + '/dist/movieswebapp'));
 
 
 // app.get('*', function(req,res) {
