@@ -63,13 +63,17 @@ export class MovieComponent implements OnInit {
     console.log('name selected', movie_id)
 
     this._movieService.getMovieDetails(movie_id).subscribe(data =>{
+      console.log(data)
+      
       data.poster_path = this.imageURL+data.poster_path;  
       this.selectedMovie = data;  
     }, err =>{ console.log(err)},()=>
     {
+
+      console.log(this.selectedMovie)
       const dialogRef = this.dialog.open(MovieDetailsComponent, {
         width: '500px',
-        data: {data:this.selectedMovie}
+        data: this.selectedMovie
       });
       dialogRef.afterClosed().subscribe(result => {
         this.title = result
