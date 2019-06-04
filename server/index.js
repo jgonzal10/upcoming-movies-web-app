@@ -16,10 +16,11 @@ app.use((req, res, next) =>
     )
 app.use(express.static(__dirname + '/dist/movieswebapp'));
 
+if (process.env.NODE_ENV === 'production') {
+    console.log('prod')
+    app.use(express.static(path.join(__dirname, '../movieswebapp/dist')));
+}
 
-// app.get('*', function(req,res) {
-//     res.sendFile(path.join(__dirname + '/dist/movieswebapp/index.html'));
-// });
 app.use('/api', routes)
 
 const port = process.env.PORT || 3000;
