@@ -5,10 +5,8 @@ Web application Node.js + Angular 8
 ## Architecture 
 
 
-├── movieswebapp            # Angular 8 Web App
-│   │                                          
+├── movieswebapp            # Angular 8 Web App       
 ├── server                  # Node.js Express 
-│   │                                         
 │   ├── controllers          
 │   ├── services        
 │   └── routes               
