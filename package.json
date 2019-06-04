@@ -7,7 +7,7 @@
     "client":"cd movieswebapp && npm start",
     "start": "node server/index.js",
     "build": "cd movieswebapp && ng build",
-    "heroku-postbuild": "cd movieswebapp && ng build --aot -prod"
+    "heroku-postbuild": "cd movieswebapp && ng build --aot --prod"
 
   },
   "dependencies": {
