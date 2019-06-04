@@ -4,9 +4,10 @@
   "description": "Web application Node.js + Angular 8",
   "main": "index.js",
   "scripts": {
+    "ng":"ng movieswebapp",
     "start": "node server/index.js",
     "build": "cd movieswebapp && ng build",
-    "heroku-postbuild": "cd movieswebapp && ng build --aot --prod"
+    "postinstall": "ng build --aot -prod"
 
   },
   "repository": {
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/jgonzal10/upcoming-movies-web-app#readme",
   "engines": {
-    "node": "10.x"
+    "node": "10.x",
+    "npm": "6.4.1"
   }
 }
