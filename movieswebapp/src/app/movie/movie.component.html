@@ -1,12 +1,17 @@
-<div fxLayout fxLayoutAlign="center center">
-  <mat-form-field fxFlex="40%">
-    <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-  </mat-form-field>
-</div>
 
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>  
+        <div fxLayout>
+            <mat-form-field>
+              <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+  </span>
+  </mat-toolbar-row>
+</mat-toolbar>
 <mat-grid-list cols="3" rowHeight="300px" gutterSize="5px">
   <mat-grid-tile *ngFor="let movie of movies" (click)="openDialog(movie.id)">
-  
     <mat-grid-tile-header>
       <h3> {{movie.title}}</h3>
     </mat-grid-tile-header>

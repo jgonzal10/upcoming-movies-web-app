@@ -14,12 +14,12 @@ app.use((req, res, next) =>
         next()
     }
     )
-app.use(express.static(__dirname + '/dist/movieswebapp'));
+// app.use(express.static(__dirname + '/dist/movieswebapp'));
 
 
-app.get('*', function(req,res) {
-    res.sendFile(path.join(__dirname + '/dist/movieswebapp/index.html'));
-});
+// app.get('*', function(req,res) {
+//     res.sendFile(path.join(__dirname + '/dist/movieswebapp/index.html'));
+// });
 app.use('/api', routes)
 
 const port = process.env.PORT || 3000;
