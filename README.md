@@ -6,7 +6,7 @@ Web application Node.js + Angular 8
 
 
 ├── movieswebapp            # Angular 8 Web App       
-├── server                  # Node.js Express 
+├── server                  # Node.js Express         
 │   ├── controllers          
 │   ├── services        
 │   └── routes               
@@ -14,7 +14,7 @@ Web application Node.js + Angular 8
 
 ## Third-Party Libraries
 1. Express
-2. Axious
+2. Axios
 3. Angular/Material
 
 
