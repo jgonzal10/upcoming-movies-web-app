@@ -16,8 +16,10 @@ app.use((req, res, next) =>
     )
 app.use(express.static(__dirname + '/dist/movieswebapp'));
 
+console.log('dr ',__dirname)
+
 if (process.env.NODE_ENV === 'production') {
-    console.log('prod')
+    console.log('server production')
     app.use(express.static(path.join(__dirname, '../movieswebapp/dist/index.html')));
 }
 
