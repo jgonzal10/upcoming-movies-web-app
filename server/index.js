@@ -14,13 +14,13 @@ app.use((req, res, next) =>
         next()
     }
     )
-app.use(express.static(__dirname + '/dist/movieswebapp'));
+app.use(express.static(__dirname + 'public'));
 
 console.log('dr ',__dirname)
 
 if (process.env.NODE_ENV === 'production') {
     console.log('server production')
-    app.use(express.static(path.join(__dirname, '../movieswebapp/dist/index.html')));
+    app.use(express.static(path.join(__dirname, '/movieswebapp/public/index.html')));
 }
 
 app.use('/api', routes)
