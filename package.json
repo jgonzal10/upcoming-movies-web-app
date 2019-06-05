@@ -7,7 +7,7 @@
     "ng": "ng",
     "client": "cd movieswebapp && ng serve --proxy-config proxy.conf.json",
     "server": "node server/index.js",
-    "start": "cd movieswebapp && npm run build concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "build": "cd movieswebapp && ng build",
     "postinstall": "cd movieswebapp && npm install && ng build --aot --prod"
 
