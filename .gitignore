@@ -1,6 +1,5 @@
 /server/node_modules
 /node_modules
-/movieswebapp/dist
 /movieswebapp/tmp
 /out-tsc
 # Only exists if Bazel was run
