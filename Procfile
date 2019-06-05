@@ -1,1 +1,1 @@
-web : node server/index.js
+web : ng serve --proxy-config proxy.conf.json
