@@ -1,11 +1,10 @@
 /server/node_modules
-
-/movieswebapp/dist
+/node_modules
 /movieswebapp/tmp
 /out-tsc
 # Only exists if Bazel was run
 /movieswebapp/bazel-out
-
+/dist
 # dependencies
 /movieswebapp/node_modules
 
@@ -40,3 +39,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+.env
