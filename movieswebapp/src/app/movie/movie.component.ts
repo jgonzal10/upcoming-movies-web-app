@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material';
 import {IMovie} from '../models/movie'
 import { MoviesService } from '../services/movies.service';
 import { MovieDetailsComponent } from '../movie-details/movie-details.component';
-import { stringToKeyValue } from '@angular/flex-layout/extended/typings/style/style-transforms';
 
 @Component({
   selector: 'app-movie',
@@ -21,7 +20,7 @@ export class MovieComponent implements OnInit {
   imageURL = 'https://image.tmdb.org/t/p/w500';
 
   
-  constructor(private _movieService: MoviesService, public dialog: MatDialog) {  
+  constructor(private _movieService: MoviesService, public dialog: MatDialog) { 
     this._movieService.getMovies(this.currentPage).subscribe(data =>{  
       this.movies= this.transformURL(data)  
     }); 
@@ -33,7 +32,12 @@ export class MovieComponent implements OnInit {
    * @param event 
    */
   pageChanged(event){
-    this.currentPage = event.pageIndex;
+    if(event.pageIndex === 1){
+      this.currentPage = event.pageIndex+1;
+    }else{
+      this.currentPage = event.pageIndex;
+    }
+  //  this.currentPage = event.pageIndex;
     this._movieService.getMovies(this.currentPage).subscribe(data =>{  
       this.movies= this.transformURL(data)  
     }); 
@@ -60,19 +64,17 @@ export class MovieComponent implements OnInit {
   }
 
   openDialog(movie_id:number): void {
-    console.log('name selected', movie_id)
 
     this._movieService.getMovieDetails(movie_id).subscribe(data =>{
-      console.log(data)
-      
+
       data.poster_path = this.imageURL+data.poster_path;  
       this.selectedMovie = data;  
     }, err =>{ console.log(err)},()=>
     {
 
-      console.log(this.selectedMovie)
       const dialogRef = this.dialog.open(MovieDetailsComponent, {
         width: '500px',
+        height: '500px',
         data: this.selectedMovie
       });
       dialogRef.afterClosed().subscribe(result => {
