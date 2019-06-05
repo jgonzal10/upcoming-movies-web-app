@@ -4,7 +4,7 @@
 /out-tsc
 # Only exists if Bazel was run
 /movieswebapp/bazel-out
-
+/dist
 # dependencies
 /movieswebapp/node_modules
 

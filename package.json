@@ -4,13 +4,9 @@
   "description": "Web application Node.js + Angular 8",
   "main": "index.js",
   "scripts": {
-    "ng": "ng",
     "client": "cd movieswebapp && ng serve --proxy-config proxy.conf.json",
     "server": "nodemon server/index.js",
     "start": "node server/index.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "dev:server":"cd movieswebapp && ng build --aot --prod && cd .. && npm start",
-    "build": "cd movieswebapp && ng build",
     "heroku-postbuild": "cd movieswebapp && npm install && ng build --aot --prod"
 
   },
