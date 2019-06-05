@@ -9,7 +9,7 @@
     "server": "node server/index.js",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "build": "cd movieswebapp && ng build",
-    "postinstall": "cd movieswebapp && npm install && ng build --aot --prod"
+    "heroku-postbuild": "cd movieswebapp && npm install && ng build --aot --prod"
 
   },
   "dependencies": {
