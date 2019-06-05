@@ -1,8 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const routes = require('./routes');
-const path = require('path');
+const path = require('path')
+const routes = require('./routes')
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -15,13 +15,11 @@ app.use((req, res, next) =>
         next()
     }
     )
-app.use(express.static(__dirname + 'public'));
-
-console.log('dr ',__dirname)
+app.use(express.static(__dirname + '/dist/movieswebapp'));
 
 if (process.env.NODE_ENV === 'production') {
-    console.log('server production')
-    app.use(express.static(path.join(__dirname, '/movieswebapp/public/index.html')));
+    console.log('in server prod')
+    app.use(express.static(path.join(__dirname, '../movieswebapp/dist/index.html')));
 }
 
 app.use('/api', routes)
