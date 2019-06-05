@@ -8,7 +8,7 @@
     "server": "nodemon server/index.js",
     "start": "node server/index.js",
     "build": "cd movieswebapp && ng build",
-    "heroku-postbuild": "cd movieswebapp && ng build --aot --prod"
+    "postinstall": "cd movieswebapp && npm install && ng build --aot --prod"
   },
   "dependencies": {
     "@angular/animations": "^8.0.0",
