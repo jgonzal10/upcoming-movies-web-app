@@ -18,7 +18,7 @@ app.use(express.static(__dirname + '/dist/movieswebapp'));
 
 if (process.env.NODE_ENV === 'production') {
     console.log('prod')
-    app.use(express.static(path.join(__dirname, '../movieswebapp/dist')));
+    app.use(express.static(path.join(__dirname, '../movieswebapp/dist/index.html')));
 }
 
 app.use('/api', routes)
